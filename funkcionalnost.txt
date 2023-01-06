@@ -1,0 +1,62 @@
+- Stranica je “socijalna mreža”.
+
+
+- Dva glavna dijela, a to su stupac koji sadrži feed s postovima i stupac
+ koji sadrži informacije o korisniku.
+
+
+- Treba biti responzivna.
+
+
+- Baza podataka:
+
+  Napraviti tablicu „Posts“ koja sadrži sve informacije o Post-ovima (id, ime korisnika, 
+  put do slike, da li je lajkana (upvote/heart/thumbs-up ili koji god sistem koji ste se odlučili), 
+  ukupan broj lajkova, da li je bookmarkana, ukupan broj bookmarkova, opis).
+
+  Napraviti tablicu „Comments“ koja sadrži id komentara, ime korisnika koji komentira i tekst
+ komentara.
+
+
+-Ponašanje aplikacije:
+
+  Prilikom učitavanja aplikacije, iz baze podataka se učitaju svi postovi koji se sortiraju po 
+  obrnutom redoslijedu dodavanja (zadnji dodani post je na prvom mjestu). 
+  Na temelju postova iz baze podataka (i njihovih komentara) pomoću PHP-a se generira 
+  HTML kod postova.
+
+ Klikom na gumb dodaj, korisnik može unijeti url do slike i opis. 
+ Na temelju tih informacija, šalje se zahtjev za stvaranjem novog posta na serversku aplikaciju. 
+ Ako serverska aplikacija uspije ubaciti novi post u bazu podataka, novo dodani post se umeće na 
+ početak feeda (ako se stranica ponovno učita, taj novi post mora biti na vrhu feeda)
+
+
+- Na svakom postu:
+
+ Korisnik može uključiti/isključiti srce – šalje se zahtjev na server za uključivanje/isključivanje 
+ srca na tom postu. Serverska aplikacija napravi promjenu odgovarajućih polja u bazi podataka 
+ (da li je post lajkan i koliki lajkova ima). Ako server uspije odraditi promjenu, 
+ sučelje se isto mijenja (Ako se srce uključi, broj u postu koji označuje „Sviđa mi se“ se 
+ poveća za 1, a ako se srce isključi, onda se broj smanji za 1. 
+
+ U desnom stupcu aplikacije (o meni) dijelu, ukupan broj se također povećava i smanjuje.). 
+ Ako se stranica ponovno učita stanje aplikacije mora biti zadržano 
+ (isti postovi trebaju biti lajkani – točan broj postova u desnom stupcu nije bitan).
+ Na isti način napraviti podršku za bookmarkanje.
+
+ Kod dodavanja komentara, šalje se zahtjev na server za stvaranjem novog komentara. Ako server 
+ uspješno doda komentar u bazu podataka, komentar se dodaje i na sučelju aplikacije. Nakon 
+ dodavanja novog komentara, ako se stranica ponovno učita, taj novi komentar mora biti prisutan
+ na stranici.
+
+ Nije potrebno u bazu spremati informacije o tome koji korisnici se prate. Ponovnim učitavanjem 
+ stranice, sve promjene se gube.
+
+
+*Elementi ocjene:
+
+ - Sva funkcionalnost navedena u zadatku
+ - Responzivnost stranice
+ - uredno pisanje htmla, cssa
+ - Logična imena varijabli (js i php varijabli), selektora u css u i atributa (id i class) u htmlu
+ - uredno razdvajanje koda u različite mape i datoteke
