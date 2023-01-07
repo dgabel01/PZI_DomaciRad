@@ -6,14 +6,19 @@ body{
 
 
 .top-container{
+    /*  main ide priko kad je ukljucneo
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 300;
+    */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     background-color: rgb(2, 80, 126);
     height: 80px;
     box-shadow: 1.5px 1.5px 1.5px 1.5px rgb(48, 152, 212);
-    position: relative;
-    width:100%;
    
 }
 
@@ -34,7 +39,7 @@ body{
     width: 150px;
     padding:10px;
     margin-left: 200px;
-    margin-top:25px ;
+    margin-top: 20px ;
     box-shadow: 2px 2px 2px 2px white;
     
 
@@ -51,7 +56,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin-left: 1500px;
+    margin-left: auto;             /*auto margina*/
 }
 
 .icons-container p{
