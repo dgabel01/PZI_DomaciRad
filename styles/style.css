@@ -4,22 +4,29 @@ body{
 
 /*Header style*/
 
-
 .top-container{
-    /*  main ide priko kad je ukljucneo
+    /*
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: 300;
+    bottom:0;
+    z-index: 1;
     */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     background-color: rgb(2, 80, 126);
     height: 80px;
+    width: 100vw;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 1;
     box-shadow: 1.5px 1.5px 1.5px 1.5px rgb(48, 152, 212);
-   
+    /*
+    position:sticky;
+    top:0;
+    */
 }
 
 .top-container img{
@@ -40,7 +47,7 @@ body{
     padding:10px;
     margin-left: 200px;
     margin-top: 20px ;
-    box-shadow: 2px 2px 2px 2px white;
+    box-shadow: 1px 1px 1px 1px white;
     
 
 }
@@ -73,4 +80,26 @@ body{
 }
 
 /* Main style */
+.columns {
+    margin-top: 105px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .column1{
+      flex-grow: 0.2;
+      border: 2px solid black;
+      height: 100vh;
+  }
 
+  .column2{
+      border:2px solid black;
+      flex-grow: 1;
+      width: 100vh;
+      height: 100vh;
+  }
+
+
+  
