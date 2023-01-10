@@ -1,5 +1,6 @@
 body{
-    margin: 0;    
+    margin: 0;
+    background-color: rgb(255, 255, 255);    
 }
 
 /*Header style*/
@@ -79,6 +80,8 @@ body{
     width: 50px;
 }
 
+
+
 /* Main style */
 .columns {
     margin-top: 105px;
@@ -91,15 +94,55 @@ body{
   .column1{
       flex-grow: 0.2;
       border: 2px solid black;
-      height: 100vh;
+      height: 40vh;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      flex-grow: 0.7;
+      /*fiksirat*/
   }
 
   .column2{
       border:2px solid black;
       flex-grow: 1;
       width: 100vh;
-      height: 100vh;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      
+  }
+  
+
+  .user-profile{
+      display: flex;
+      flex-direction:column;
+      justify-content: space-between;
+  }
+  
+
+  .user-profile-pic img{
+        width: 20vw;
+        height: 34vh;
+        margin-right: -25px;
+        border-radius:9px; 
+        margin-top:5px;
+        margin-left: 5px;   
+        box-shadow: 2px 2px 2px 2px rgb(234, 230, 230);    
   }
 
+  .user-profile-stats{
+      flex-grow: 0.73;
+      margin-left: 5px;
+      padding-left: 10px;
+  }
 
+  
+  .new-post{
+      height: 25vh;
+  }
+
+  .users-post{
+      height: 40vh;
+  }
   
