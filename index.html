@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>PZI Domaci Rad</title>
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="/images/logo/socialclone-high-resolution-color-logo.png">
+  </head>
+  <body>
     <div class="top-container">
             <a href="index.html" target="_blank"><img src="/images/logo/socialclone-high-resolution-color-logo.png" alt=""></a>
             <div class="search-container">
                 <input type="text" placeholder="Search...">
-                <i class="fa fa-search search-icon"></i>
+                <button><i class="fa fa-search search-icon"></i></button>
             </div>
             <div class="icons-container">
                     <p id ="greetings-text">Hi, User!</p>
@@ -27,35 +28,57 @@
     </div>
     <main>
         <div class="columns">
-            <div class="column1">
-                 <div class="user-profile-pic">
-                    <img src="/images/user_profile_pic/ER8VfeSQDCwyhy4VonxycZ.jpeg" alt="">
-                 </div>
-                 <div class="user-profile-stats">
-                     <h1>User</h1>
-                     <p>Posts : 10</p>
-                     <p>Likes : 3148123</p>
-                     <p>SUIIII</p>
-                </div>  
-           </div>
             <div class="column2">
-              <div class="new-post">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi praesentium atque molestias quibusdam, maiores blanditiis? Iste consequuntur pariatur, quidem quis dolor debitis, esse mollitia optio eos corrupti quisquam vel quo.</p>
-              </div>
-                <div class="users-post">
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate nihil corrupti voluptatem natus sequi accusantium nemo aut similique omnis alias in, quod ut at distinctio labore error ex atque? Autem!</p>
+                <div class="new-post">
+                    <textarea name="new-post-text" id="new-post-text" cols="90" rows="3" placeholder="Thoughts?"></textarea>
+                    <button id ="new-post-button">POST</button>
                 </div>
                 <div class="users-post">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate nihil corrupti voluptatem natus sequi accusantium nemo aut similique omnis alias in, quod ut at distinctio labore error ex atque? Autem!</p>
-            </div>
-            <div class="users-post">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate nihil corrupti voluptatem natus sequi accusantium nemo aut similique omnis alias in, quod ut at distinctio labore error ex atque? Autem!</p>
-            </div>
-            <div class="users-post">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate nihil corrupti voluptatem natus sequi accusantium nemo aut similique omnis alias in, quod ut at distinctio labore error ex atque? Autem!</p>
+                  <div class="posted-image">
+                    <img src="/images/post_images/split-riva.jpeg" alt="">
+                  </div>  
+                  <div class="user-comment">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ducimus quibusdam earum, inventore possimus, ipsa minus a asperiores adipisci reiciendis ratione ut nihil aliquam, sit consequatur ullam quia. Minus, repellat!</p>
+                  </div>
+                  <div class="user-img">
+                   <img src="/images/user_profile_pic/ER8VfeSQDCwyhy4VonxycZ.jpeg" alt="">
+                  </div>
+                  <div class="posts-stats">
+                   <div class="posts-user-name">
+                      <p>User_1</p>
+                   </div>
+                   <div class="posts-time-added">
+                      <p>45 min ago</p>
+                   </div>
+                  </div>
+                  <div class="posts-reactions">
+                    <p id="comments-num">Comments (0)</p>
+                  </div>
+                </div>
+
+
+
+                <div class="users-post">
+                  
+
+                </div>
           </div>
-          </div>
+          <div class="column1">
+            <div class="user-profile-pic">
+               <img src="/images/user_profile_pic/ER8VfeSQDCwyhy4VonxycZ.jpeg" alt="">
+            </div>
+            <div class="user-profile-stats">
+                  <h1>User</h1>
+                  <p>Posts : 10</p>
+                  <p>Likes : 3148123</p>
+                  <p>Joined : 7.9.2009</p>
+                  <p>Friends : 232142</p>
+           </div>  
+        </div>
       </div>
     </main>
-</body>
+  </body>
+  <footer>
+    <a href="https://github.com/dgabel01/PZI_DomaciRad" target="blank"><p>PZI DOMAĆI RAD 2023</p></a>
+  </footer>
 </html>

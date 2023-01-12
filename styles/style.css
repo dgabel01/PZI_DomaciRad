@@ -1,22 +1,18 @@
 body{
     margin: 0;
-    background-color: rgb(255, 255, 255);    
+    background-color: rgba(255, 255, 255, 0.6);    
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 /*Header style*/
 
 .top-container{
-    /*
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom:0;
-    z-index: 1;
-    */
+   
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    background-color: rgb(2, 80, 126);
+    background-color: rgb(20, 116, 171);
     height: 80px;
     width: 100vw;
     position: fixed;
@@ -59,7 +55,19 @@ body{
     margin-left: -20px;
     
 }
-
+.top-container button{
+    background:none;
+    border:none;
+    margin-left:-10px;
+}
+.top-container button:hover{
+    font-size: 110%;
+    transition: 0.9s;
+}
+.top-container button:active{
+    font-size: 130%;
+    transition: 0.5s;
+}
 .icons-container{
     display: flex;
     flex-direction: row;
@@ -81,8 +89,8 @@ body{
 }
 
 
-
 /* Main style */
+
 .columns {
     margin-top: 105px;
     display: flex;
@@ -93,27 +101,31 @@ body{
   
   .column1{
       flex-grow: 0.2;
-      border: 2px solid black;
-      height: 40vh;
+      border: 2px gray;
+      height: 30vh;
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
       flex-grow: 0.7;
+      box-shadow: 2px 2px 4px 6px rgb(240, 238, 238);
+      margin-right: 9px;
       /*fiksirat*/
+     
   }
 
   .column2{
-      border:2px solid black;
       flex-grow: 1;
       width: 100vh;
       height: auto;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      
+      margin-left: 15px;
+      margin-right: 50px;
+      box-shadow: 3px 1px 5px 6px rgb(240, 238, 238);
   }
   
-
+  /* Livi stupac */
   .user-profile{
       display: flex;
       flex-direction:column;
@@ -122,8 +134,8 @@ body{
   
 
   .user-profile-pic img{
-        width: 20vw;
-        height: 34vh;
+        width: 15vw;
+        height: 23vh;
         margin-right: -25px;
         border-radius:9px; 
         margin-top:5px;
@@ -133,16 +145,184 @@ body{
 
   .user-profile-stats{
       flex-grow: 0.73;
-      margin-left: 5px;
+      margin-left: 15px;
       padding-left: 10px;
   }
 
+
+
+  /* Desni stupac */
   
   .new-post{
       height: 25vh;
+      padding-left: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      margin-bottom: 50px;
   }
 
+  #new-post-text{
+      resize:none;
+      margin-left: 30px;
+      margin-top: 25px;
+      box-shadow: 1px 1px 10px 5px rgb(234, 230, 230);
+      border:5px  gray;
+  }
+
+  #new-post-text::placeholder{
+      font-size:22px;
+  }
+
+
+  #new-post-button{
+      margin-left:75px;
+      width: 10vw;
+      height: 10vh;
+      margin-top: 55px;
+      background-color:rgb(103, 172, 212);
+      
+      border: 1.5px solid rgb(234, 230, 230);
+      border-radius: 6px;
+      font-size: 20px;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      cursor: pointer;
+      -webkit-transition: all 0.9s;
+      -moz-transition: all 0.9s;
+      transition: all 0.9;
+  }
+
+
+  #new-post-button:hover{
+    background-color: rgb(20, 116, 171);
+    color: black;
+    -webkit-transition: all 0.9s;
+    -moz-transition: all 0.9s;
+    transition: all 0.9;
+    box-shadow: 3px 3px 25px 5px silver;
+
+  }
+
+  #new-post-button:active{
+      transform:translate(2px,1%);
+      transition: all 0.2s;
+  }
+
+  
+
+  /*User-post*/
+
+
   .users-post{
-      height: 40vh;
+      display:flex;
+      flex-direction: row;
+      flex-wrap:wrap;
+
+      width: 80vw;
+      height: 50vh;
+
+  }
+
+  .users-post::after {
+    content: '';
+    position: absolute;
+    width: 70vw;
+    margin-left: 15px;
+    height: 1px;
+    left: 0;
+    display: block;
+    clear: both;
+    background-color: black;
+}
+
+  .posted-image{
+      width:60vw;
+      height:30vh;
+
+  }
+
+  .user-img{
+    width: 6vw;
+  }
+
+  .user-img img{
+      width:90px;
+      height:90px;
+      border-radius: 50%;
+      margin-top:3px;
+      margin-left:3px;
+  }
+
+  .posted-image img{
+    width:35vw;
+    height:30vh;
+    margin-left: 190px;
+    border-radius: 6px;
+    padding-right: 4px;
   }
   
+  .user-comment{
+      height:fit-content;
+      background-color: rgb(249, 248, 248);
+      margin-bottom: 5px;
+      margin-top:3px;
+  }
+  .user-comment p{
+      margin-left:9px;
+
+  }
+
+  .posts-stats{
+      display:flex;
+      flex-direction: column;
+      flex-wrap:wrap;
+  }
+
+  .posts-user-name{
+      margin-left:10px;
+      margin-top: -10px;
+
+  }
+
+  .posts-time-added{
+    margin-left:10px;
+
+  }
+
+  .posts-reactions{
+      display:flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      margin-left: 210px;
+      margin-bottom: 10px;
+      width:45vw;
+      border: 1px solid black;
+  }
+
+  .posts-reactions p{
+      margin-left:20px;
+      margin-top: 30px;
+  }
+  /*Footer*/
+
+  footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+ }
+
+ footer a{
+     text-decoration: none;
+     font-weight: 600;
+     color:teal;
+    font-family:monospace;
+ }
+ footer a p:hover{
+    color:red;
+    font-size:900;
+    transition: 2.5s;
+ }
+ 
