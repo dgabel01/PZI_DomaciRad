@@ -229,6 +229,7 @@ body{
       height: 50vh;
       margin-bottom: 40vh;
       background-color: ghostwhite;
+      padding-bottom: 5vh;
 
   }
 
@@ -275,7 +276,7 @@ body{
   
   .user-comment{
       height:fit-content;
-      background-color:rgb(201, 254, 247);
+      background-color:rgba(212, 222, 228, 0.929);
       margin-bottom: 5px;
       margin-top:3px;
   }
@@ -324,13 +325,17 @@ body{
 
   .comment-num-and-add p{
       margin-left: 2px;
-      margin-top:0px;
+      margin-top:2px;
       margin-bottom: 30px;
   }
   .comment-num-and-add textarea{
       margin-top:-10px;
       resize: none;
+      margin-bottom: 10px;
+  }
 
+  .comment-num-and-add button{
+     width: 50%;
   }
   .like-reaction{
       display:flex;
