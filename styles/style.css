@@ -92,6 +92,7 @@ body{
 .icons-container img {
     margin-left: 30px;
     width: 4rem;
+    display: none;
 }
 
 
@@ -251,7 +252,7 @@ body{
     margin: 2rem;
     background-color: ghostwhite;
     border-radius: 6px;
-    padding-bottom: 5vh;
+    padding: 1rem;
     box-shadow: 1px 1px 10px 5px rgb(234, 230, 230);
 }
 
@@ -263,17 +264,16 @@ body{
     overflow: hidden;
 }
 
-  .user-img{
-    width: 6vw;
-  }
+.user-img {
+    width: 60px;
+    margin: 1rem 2rem;
+}
 
-  .user-img img{
-      width:90px;
-      height:90px;
-      border-radius: 50%;
-      margin-top:3px;
-      margin-left:3px;
-  }
+.user-img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
 
   .posted-image img {
     object-fit: cover;
@@ -283,96 +283,108 @@ body{
   .user-comment{
       height:fit-content;
       background-color:rgba(212, 222, 228, 0.929);
-      margin-bottom: 5px;
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
       width: 100%;
-      margin-top:3px;
+      border-radius: 6px;
   }
+
+  .post-description{
+    border-radius: 0 0 6px 6px;
+}
   .user-comment p{
       margin-left:9px;
       font-weight: 500;
   }
 
-  .posts-stats{
-      display:flex;
-      flex-direction: column;
-      flex-wrap:wrap;
-  }
+  .posts-stats {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 
   .posts-user-name{
-      margin-left:10px;
-      margin-top: -10px;
-
   }
 
-  .posts-time-added{
-    margin-left:10px;
-
+  .posts-time-added p{
+    margin: 0;
   }
-
-  .posts-reactions{
-      display:flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      margin-left: 210px;
-      margin-bottom: 10px;
-      width:45vw;
-  }
+.post-actions-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+.posts-reactions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin-left: auto;
+    margin-right: 2rem;
+}
 
   .posts-reactions p{
-      margin-left:20px;
-      margin-top: 30px;
   }
 
 
-  .comment-num-and-add{
-    display:flex;
-    flex-direction:column;
-  }
+  .comment-num-and-add {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    margin: 1.5rem 0;
+}
 
-  .comment-num-and-add p{
-      margin-left: 2px;
-      margin-top:2px;
-      margin-bottom: 30px;
-  }
   .comment-num-and-add textarea{
-      margin-top:-10px;
-      resize: none;
-      margin-bottom: 10px;
+        resize: none;
+        box-shadow: 1px 1px 10px 5px rgb(234, 230, 230);
+        width: 100%;
+        flex: 1;
+        border: 5px  gray;
+        padding: 1rem;
+        box-sizing: border-box;
+        border-radius: 6px 0 0 6px ;
+
   }
 
   .comment-num-and-add button{
-     width: 50%;
-  }
-  .like-reaction{
-      display:flex;
-      flex-direction: column;
-  }
+        background-color: rgb(20, 116, 171);
+        color: black;
+        -webkit-transition: all 0.9s;
+        -moz-transition: all 0.9s;
+        transition: all 0.9;
+        box-shadow: 3px 3px 25px 5px silver;
+        border: none;
+        border-radius: 0 6px 6px 0;
+        height: 100%;
+        flex: 0.2;
+    }
+  .like-reaction, .bookmark-reaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
   .like-reaction i{
-      margin-left:35px;
-      margin-top:10px;
   }
 
   .like-reaction p{
-    margin-right: 10px;   
   }
 
 
-  .bookmark-reaction{
-      display:flex;
-      flex-direction: column;
-      margin-right: 50px;
-  }
+  .like-reaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
   .bookmark-reaction i{
-    margin-left:35px;
-    margin-top:10px;
 
 }
 
 .bookmark-reaction p{
-  margin-right: 10px;   
 }
 
 
@@ -406,6 +418,6 @@ body{
         flex: 0.7;
     }
     .icons-container img{
-        display: none;
+        display: flex;
     }
   }

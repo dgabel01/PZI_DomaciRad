@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `Comments` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Username` varchar(250) NOT NULL,
   `Text` text NOT NULL,
+  `PostID` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
@@ -31,11 +32,11 @@ CREATE TABLE IF NOT EXISTS `Comments` (
 -- Dumping data for table `Comments`
 --
 
-INSERT INTO `Comments` (`ID`, `Username`, `Text`) VALUES
-(2, 'Gabela01', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
-(3, 'Čevo1950', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
-(4, 'Primošten', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
-(5, 'IvoBralalo', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'),
+INSERT INTO `Comments` (`ID`, `Username`, `Text`,`PostID`) VALUES
+(2, 'Gabela01', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',2),
+(3, 'Čevo1950', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',3),
+(4, 'MateD', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',2),
+(5, 'IvoBralalo', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',2);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

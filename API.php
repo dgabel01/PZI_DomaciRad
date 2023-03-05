@@ -11,6 +11,9 @@ function processRequest(){
       case 'addPost':
         processAddPost();
         break;
+      case 'addComment':
+        processAddComment();
+        break;
       case 'togglePostBookmark':
         processTogglePostBookmark();
         break;
@@ -35,14 +38,15 @@ function processTogglePostLike(){
 
   $id = getRequestParameter("id");
   $liked = getRequestParameter("liked");
+  $likes = getRequestParameter("likes");
 
-  if (is_numeric($id) && is_numeric($liked)) {
-    togglePostLike($id, $liked);
+  if (is_numeric($id) && is_numeric($liked) && is_numeric($likes)) {
+    togglePostLike($id, $liked, $likes);
     $success = true;
   } 
   else {
     $success = false;
-    $reason = "Needs id:number; liked:number";
+    $reason = "Needs id:number; liked:number; likes:number";
   }
 
   echo(json_encode(array(
@@ -58,14 +62,15 @@ function processTogglePostBookmark(){
 
   $id = getRequestParameter("id");
   $bookmarked = getRequestParameter("bookmarked");
+  $bookmarks = getRequestParameter("bookmarks");
 
-  if (is_numeric($id) && is_numeric($bookmarked)) {
-    togglePostBookmark($id, $bookmarked);
+  if (is_numeric($id) && is_numeric($bookmarked) && is_numeric($bookmarks)) {
+    togglePostBookmark($id, $bookmarked, $bookmarks);
     $success = true;
   } 
   else {
     $success = false;
-    $reason = "Needs id:number; bookmarked:number";
+    $reason = "Needs id:number; bookmarked:number; bookmarks:number";
   }
 
   echo(json_encode(array(
@@ -98,5 +103,31 @@ function processAddPost()
     "id" => $id
     )));
 }
+
+function processAddComment()
+{
+  $success = false;
+  $reason = "";
+  $id = 0;
+  $username = getRequestParameter('username');
+  $text = getRequestParameter('text');
+  $postid = getRequestParameter('postid');
+  if($username != "" && $text != "" && is_numeric($postid))
+  {
+    $id = addComment($username, $text, $postid);
+    $success = true;
+  }
+  else
+  {
+    $success = false;
+    $reason = "username, text and postid need to be non empty strings";
+  }
+  echo(json_encode(array(
+    "success" => $success,
+    "reason" => $reason,
+    "id" => $id
+    )));
+}
+
 
 processRequest();

@@ -9,44 +9,45 @@
     <title>PZI Domaci Rad</title>
     <link rel="icon" type="image/x-icon" href="images/logo/socialclone-high-resolution-color-logo.png">
     <template id='post-template'>
-      <div class='users-post'  data-post-id=''>
-          <div class='posted-image'>
-              <img src='' alt=''>
-          </div>  
-          <div class='user-comment'>
-              <p></p>
-          </div>
-          <div class='user-img'>
-              <img src='' alt=''>
-          </div>
-          <div class='posts-stats'>
-              <div class='posts-user-name'>
-                  <p></p>
-              </div>
-              <div class='posts-time-added'>
-                  <p>45 min ago</p>
-              </div>
-          </div>
-          <div class='posts-reactions'>
-              <div class='comment-num-and-add'>
-                  <p id='comments-num'>Comments (0)</p>
-                  <textarea name='' id='' cols='25' rows='3' placeholder='Add comment'></textarea>
-                  <button>Add comment</button>
-              </div>
-              <div class='like-reaction'>
-                  <i class='heart-icon fa-heart-o fa fa-lg'></i>
-                  <p></p>
-              </div>
-              <div class='bookmark-reaction'>
-                  <i class='bookmark-icon fa-bookmark-o fa fa-lg'></i>
-                  <p></p>
-              </div>
-          </div> 
-      </div>
+                  <div class='users-post'  data-post-id='$id'>
+                    <div class='posted-image'>
+                        <img src='' alt=''>
+                    </div>  
+                    <div class='user-comment post-description'>
+                        <p></p>
+                    </div>
+                    <div class='post-actions-container'>
+                        <div class='user-img'>
+                            <img src='' alt=''>
+                        </div>
+                        <div class='posts-stats'>
+                            <div class='posts-user-name'>
+                                <h2></h2>
+                            </div>
+                            <div class='posts-time-added'>
+                                <p>45 min ago</p>
+                            </div>
+                        </div>
+                        <div class='posts-reactions'>
+                            <div class='like-reaction'>
+                                <i class='heart-icon fa  fa-heart-o fa-2x'></i>
+                                <p>Likes(0)</p>
+                            </div>
+                            <div class='bookmark-reaction'>
+                                <i class='bookmark-icon fa fa-bookmark-o fa-2x'></i>
+                                <p>Bookmarks(0)</p>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class='comment-num-and-add'>
+                        <textarea name='' id='' cols='25' rows='3' placeholder='Add comment'></textarea>
+                        <button>Add comment</button>
+                    </div>
+                </div>
     </template>
     <template id='comment-template'>
         <div class='user-comment'>
-          <p></p>
+          <p><b></b></p>
         </div>
     </template>
   </head>

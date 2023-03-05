@@ -11,12 +11,12 @@ async function handleHeartIconClick(e)
 
 	const post = heartIcon.closest('.users-post');
 	const postId = post.getAttribute('data-post-id');
-
+	const likes = parseInt(post.querySelector('.like-reaction p').textContent.substring(6,post.querySelector('.like-reaction p').textContent.length-1));
 	const isCurrentlyLiked = heartIcon.classList.contains('fa-heart');
 	try
 	{
 		const serverResponse = await fetch(
-			`API.php?action=togglePostLike&id=${postId}&liked=${isCurrentlyLiked ? 0 : 1}`
+			`API.php?action=togglePostLike&id=${postId}&liked=${isCurrentlyLiked ? 0 : 1}&likes=${isCurrentlyLiked ? likes-1 :likes+1}`
 		);
 		const responseData = await serverResponse.json();
 
@@ -29,15 +29,51 @@ async function handleHeartIconClick(e)
 		{
 			heartIcon.classList.remove('fa-heart-o');
 			heartIcon.classList.add('fa-heart');
+			post.querySelector('.like-reaction p').textContent = `Likes(${likes+1})`;
 		} else
 		{
 			heartIcon.classList.remove('fa-heart');
 			heartIcon.classList.add('fa-heart-o');
+			post.querySelector('.like-reaction p').textContent = `Likes(${likes-1})`;
 		}
 	} catch (error)
 	{
 		throw new Error(error.message || error);
 	}
+}
+
+async function handleAddCommentClick(e) {
+
+	const addPostButton = e.currentTarget;
+
+	const post = addPostButton.closest('.users-post');
+	const text = post.querySelector('.comment-num-and-add textarea').value;
+	const postid = post.getAttribute('data-post-id');
+
+	try
+	{
+		const serverResponse = await fetch(`API.php?action=addComment&username=${'User'}&text=${text}&postid=${postid}`);
+		const responseData = await serverResponse.json();
+		if (!responseData.success)
+		{
+			throw new Error(`Error while adding post: ${responseData.reason}`);
+		}
+
+		const commentTemplate = document.querySelector('#comment-template');
+		const commentElement = document.importNode(commentTemplate.content, true);
+
+		commentElement.querySelector('p').textContent = `${text}`;
+		const username = document.createElement('b');
+		username.textContent="User:";
+		commentElement.querySelector('p').prepend(username);
+		addPostButton.closest('.users-post').appendChild(commentElement);
+		post.querySelector('.comment-num-and-add textarea').value='';
+	}
+	catch (error) 
+	{
+		throw new Error(error.message || error);
+	}
+
 }
 
 const bookmarkIcons = document.querySelectorAll('.bookmark-icon');
@@ -53,12 +89,13 @@ async function handleBookmarkIconClick(e)
 
 	const post = bookmarkIcon.closest('.users-post');
 	const postId = post.getAttribute('data-post-id');
+	const bookmarks = parseInt(post.querySelector('.bookmark-reaction p').textContent.substring(10,post.querySelector('.bookmark-reaction p').textContent.length-1));
 
 	const isCurrentlyBookmarked = bookmarkIcon.classList.contains('fa-bookmark');
 	try
 	{
 		const serverResponse = await fetch(
-			`API.php?action=togglePostBookmark&id=${postId}&bookmarked=${isCurrentlyBookmarked ? 0 : 1}`
+			`API.php?action=togglePostBookmark&id=${postId}&bookmarked=${isCurrentlyBookmarked ? 0 : 1}&bookmarks=${isCurrentlyBookmarked ? bookmarks-1 :bookmarks+1}`
 		);
 		const responseData = await serverResponse.json();
 
@@ -71,10 +108,12 @@ async function handleBookmarkIconClick(e)
 		{
 			bookmarkIcon.classList.remove('fa-bookmark-o');
 			bookmarkIcon.classList.add('fa-bookmark');
+			post.querySelector('.bookmark-reaction p').textContent = `Bookmarks(${bookmarks+1})`;
 		} else
 		{
 			bookmarkIcon.classList.remove('fa-bookmark');
 			bookmarkIcon.classList.add('fa-bookmark-o');
+			post.querySelector('.bookmark-reaction p').textContent = `Bookmarks(${bookmarks-1})`;
 		}
 	} catch (error)
 	{
@@ -83,7 +122,6 @@ async function handleBookmarkIconClick(e)
 }
 
 const addPostButton = document.querySelector('#new-post-button');
-console.log(addPostButton);
 // Arrow function, runs when user clicks on addCardButton
 addPostButton.addEventListener('click', async (e) =>
 {
@@ -118,11 +156,14 @@ addPostButton.addEventListener('click', async (e) =>
 		// add event listeners to necessary places
 		postElement.querySelector('.heart-icon').addEventListener('click', handleHeartIconClick);
 		postElement.querySelector('.bookmark-icon').addEventListener('click', handleBookmarkIconClick);
+		postElement.querySelector('.comment-num-and-add button').addEventListener('click', handleAddCommentClick);
 
 		// Add the card to the DOM in the card container
 		const postsContainer = document.querySelector('.posts');
 
 		postsContainer.prepend(postElement);
+		document.querySelector('#new-post-text').value='';
+		document.querySelector('#new-post-image').value='';
 	}
 	catch (error) 
 	{
@@ -130,6 +171,17 @@ addPostButton.addEventListener('click', async (e) =>
 	}
 
 });
+
+
+const addCommentButtons = document.querySelectorAll('.comment-num-and-add button');
+
+for(let i=0; i<addCommentButtons.length;i++){
+	addCommentButtons[i].addEventListener('click', handleAddCommentClick);
+}
+
+
+// Arrow function, runs when user clicks on addCardButton
+
 
 // /* Implement search */
 // document.querySelector('#search-box').addEventListener('keyup', (e) =>

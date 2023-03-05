@@ -45,35 +45,36 @@ function generatePostsHtml(){
                     <div class='posted-image'>
                         <img src='$imageUrl' alt=''>
                     </div>  
-                    <div class='user-comment'>
+                    <div class='user-comment post-description'>
                         <p>$description</p>
                     </div>
-                    <div class='user-img'>
-                        <img src='$imageUrl' alt='$id'>
+                    <div class='post-actions-container'>
+                        <div class='user-img'>
+                            <img src='$imageUrl' alt='$id'>
+                        </div>
+                        <div class='posts-stats'>
+                            <div class='posts-user-name'>
+                                <h2>$username</h2>
+                            </div>
+                            <div class='posts-time-added'>
+                                <p>45 min ago</p>
+                            </div>
+                        </div>
+                        <div class='posts-reactions'>
+                            <div class='like-reaction'>
+                                <i class='heart-icon fa $heartClass fa-2x'></i>
+                                <p>Likes($likes)</p>
+                            </div>
+                            <div class='bookmark-reaction'>
+                                <i class='bookmark-icon fa $bookmarkClass fa-2x'></i>
+                                <p>Bookmarks($bookmarks)</p>
+                            </div>
+                        </div> 
                     </div>
-                    <div class='posts-stats'>
-                        <div class='posts-user-name'>
-                            <p>$username</p>
-                        </div>
-                        <div class='posts-time-added'>
-                            <p>45 min ago</p>
-                        </div>
+                    <div class='comment-num-and-add'>
+                        <textarea name='' id='' cols='25' rows='3' placeholder='Add comment'></textarea>
+                        <button>Add comment</button>
                     </div>
-                    <div class='posts-reactions'>
-                        <div class='comment-num-and-add'>
-                            <p id='comments-num'>Comments (0)</p>
-                            <textarea name='' id='' cols='25' rows='3' placeholder='Add comment'></textarea>
-                            <button>Add comment</button>
-                        </div>
-                        <div class='like-reaction'>
-                            <i class='heart-icon fa $heartClass fa-lg'></i>
-                            <p>Likes($likes)</p>
-                        </div>
-                        <div class='bookmark-reaction'>
-                            <i class='bookmark-icon fa $bookmarkClass fa-lg'></i>
-                            <p>Boookmarks($bookmarks)</p>
-                        </div>
-                    </div> 
                     $commentsList
                 </div>".$html;
     }
@@ -81,15 +82,21 @@ function generatePostsHtml(){
     return $html;
 }
 
-function togglePostLike($id, $liked){
-    getDbAccess()->executeQuery("UPDATE Posts SET Liked='$liked' WHERE ID='$id'");
+function togglePostLike($id, $liked, $likes){
+    getDbAccess()->executeQuery("UPDATE Posts SET Liked='$liked', Likes='$likes' WHERE ID='$id'");
 }
 
-function togglePostBookmark($id, $bookmarked){
-    getDbAccess()->executeQuery("UPDATE Posts SET Bookmarked='$bookmarked' WHERE ID='$id'");
+function togglePostBookmark($id, $bookmarked, $bookmarks){
+    getDbAccess()->executeQuery("UPDATE Posts SET Bookmarked='$bookmarked', Bookmarks='$bookmarks' WHERE ID='$id'");
 }
 
 function addPost($username, $imageUrl, $description)
 {
     getDbAccess()->executeInsertQuery("INSERT INTO Posts values ('0', '$username', '$imageUrl', '$description', '0', '0', '0', '0')");
 }
+
+function addComment($username, $text, $postid)
+{
+    getDbAccess()->executeInsertQuery("INSERT INTO Comments values ('0', '$username', '$text', '$postid')");
+}
+
